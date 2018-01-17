@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter" t:type="layout"
+      title="Report | UAC BETA">
+<style>
+    @media all and (-ms-high-contrast: none) {
+        .search {
+            width: 16%;
+            margin-right: 15px;
+        }
+
+        /* IE10 */
+        .serchIcon {
+            margin-left: 80%;
+        }
+
+        /* IE10 */
+        .client1 {
+            margin-left: -9px;
+            width: 45%;
+        }
+
+        /* IE10 */
+        *::-ms-backdrop, .search {
+            width: 16%
+        }
+
+        /* IE11 */
+        *::-ms-backdrop, .client1 {
+            margin-left: -9px;
+            width: 45%;
+        }
+
+        /* IE11 */
+    }
+
+    @media (min-width: 992px) {
+
+        .col-set {
+            margin-left: 25em;
+        }
+
+    }
+
+</style>
+<script>
+    function openWin() {
+        var reportData = document.getElementById("viewReportData").value;
+        var date = new Date();
+        var reportDataArray = reportData.split("#");
+        var x = document.createElement("TABLE");
+        var tableId = "myTable" + date.getMilliseconds();
+        x.setAttribute("id", tableId);
+        x.setAttribute("bgcolor", "#999");
+        x.setAttribute("border", "2");
+        x.setAttribute("width", "100%");
+        document.body.appendChild(x);
+        for (var i = 0; i != reportDataArray.length; i++) {
+            var data = reportDataArray[i];
+            data = data.split("-");
+            var y = document.createElement("TR");
+            y.setAttribute("id", "myTr" + i + tableId);
+            document.getElementById(tableId).appendChild(y);
+            var z = document.createElement("TD");
+            var t = document.createTextNode(data[0]);
+            z.appendChild(t);
+            var z1 = document.createElement("TD");
+            var t1 = document.createTextNode(data[1]);
+            z1.appendChild(t1);
+            document.getElementById("myTr" + i + tableId).appendChild(z);
+            document.getElementById("myTr" + i + tableId).appendChild(z1);
+        }
+        var divText = x.outerHTML;
+        var myWindow = window.open('', '', 'width=500,height=300');
+        var doc = myWindow.document;
+        doc.open();
+        doc.write(divText);
+        document.getElementById(tableId).style.display = "none";
+        doc.close();
+    }
+
+    function openWindow(path) {
+        var myWin = window.open(' " + pdfFileName + " ', 'mywindow', 'width=400,height=200');
+    }
+
+</script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="beta">
+            <span style="float: left"><img class="img-responsive" src="${asset:images//zensar.png}"/></span>
+            <span style="float: right"><img class="img-responsive" src="${asset:images//beta.png}"/></span>
+        </div>
+    </div>
+    <div class="row">
+        <header>
+            <h1 id="logo" class="col-md-2 col-xs-8" style="padding: 0px;">
+                <a href="#">
+                    <img class="img-responsive" src="${asset:images/uac-logo-1.png}"/>
+                </a>
+            </h1>
+
+            <div class=" col-md-7 top-nav">
+                <nav class="navbar navbar-default" style="background-color: transparent;border-color: transparent;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <t:pagelink page="home"
+                                            style="background-color: transparent;color: #fff;">HOME
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="WhatUASG"
+                                            style="background-color: transparent;color: #fff;">WHAT IS UA
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="WhyUASG"
+                                            style="background-color: transparent;color: #fff;">WHY UA
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="FAQ"
+                                            style="background-color: transparent;color: #fff;">FAQS
+                                </t:pagelink>
+                            </li>
+                            <!--<li>
+                                <t:pagelink page="Blog"
+                                            style="background-color: transparent;color: #fff;">BLOGS
+                                </t:pagelink>
+                            </li>-->
+                            <li>
+                                <t:pagelink page="AboutUs"
+                                            style="background-color: transparent;color: #fff;">ABOUT US
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="ContactUs"
+                                            style="background-color: transparent;color: #fff;">CONTACT US
+                                </t:pagelink>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!--<div class="col-md-3 topsearch">
+                <input type="text" name="search" class="form-control" id="search-control" placeholder="e.g.zensar.com"/>
+                <a><img src="${asset:images/search_icon.png}"/></a>
+            </div>-->
+        </header>
+
+        <section id="main" class="reportmain clearfix">
+            <div class="reportTop clearfix">
+                <div class="timer">
+                    <t:delegate to="case"/>
+                    <t:block id="one">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/one.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE IS NOT <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                    <t:block id="two">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/two.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE IS NOT <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                    <t:block id="three">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/three.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE NEEDS SUBSTANTIAL WORK TO MAKE IT <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                    <t:block id="four">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/four.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE NEEDS SUBSTANTIAL WORK TO MAKE IT <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                    <t:block id="five">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/five.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE NEEDS SUBSTANTIAL WORK TO MAKE IT <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                    <t:block id="six">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/six.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE NEEDS SUBSTANTIAL WORK TO MAKE IT <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                    <t:block id="seven">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/seven.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE NEEDS SUBSTANTIAL WORK TO MAKE IT <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                    <t:block id="eight">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/eight.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE CAN BE MADE FULLY <span>UA COMPLIANT</span> WITH LITTLE CHANGES</h2>
+                        </div>
+                    </t:block>
+                    <t:block id="nine">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/nine.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE CAN BE MADE FULLY <span>UA COMPLIANT</span> WITH LITTLE CHANGES</h2>
+                        </div>
+                    </t:block>
+                    <t:block id="ten">
+                        <div class="col-md-12 timer">
+                            <img src="${asset:images/ten.png}"/>
+
+                            <p class="weburl">${crawlingURL}</p>
+
+                            <h2>YOUR WEBSITE IS FULLY <span>UA COMPLIANT</span></h2>
+                        </div>
+                    </t:block>
+                </div>
+                <!--<p class="weburl">WWW.Zensar.com</p>
+
+                <h2>YOUR WEBSITE IS CLOSE TO <span>UA COMPLIANCE</span></h2>-->
+
+                <div class="col-md-12 reportBtns" style="margin-bottom:2em">
+                    <!--<button type="button" class="btn btn-primary btn-green" onclick="openWin()">VIEW DETAIL REPORT
+                    </button>-->
+                    <t:actionlink t:id="exportLink" id="exportLink" class="btn btn-primary btn-green"
+                                  style="padding-top:10px"
+                                  disable="true">DOWNLOAD DETAIL REPORT
+                    </t:actionlink>
+                    <!--<button type="button" class="btn btn-primary btn-green">DOWNLOAD DETAIL REPORT</button>-->
+                    <input type="hidden" value="${viewReportData}" id="viewReportData"/>
+                </div>
+                <!--<div class="col-md-8 zenImg"><img src="${asset:images/bannerImage.png}" class="img-responsive"/></div>-->
+            </div>
+            <div class="reportMiddle">
+                <div class="col-md-9 criteria-table">
+                    <div class="table-responsive" id="tableDetails">
+                        <table class="table compliance">
+                            <thead>
+                            <tr>
+                                <th>CRITERIA</th>
+                                <th>COMPLETION FACTOR(Out of 10)</th>
+                                <!--    <th>STATUS</th>
+                                    <th></th>-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="domain1">HTML Unicode Compliance</td>
+                                <td class="domain1" style="padding-left:100px">${htmlUnicodeCompliance}</td>
+                                <!--<td class="view"><a href="#" onclick="openWin()">View Details </a></td>-->
+                            </tr>
+                            <tr>
+                                <td class="domain1">Form Elements</td>
+                                <td class="domain1" style="padding-left:100px">${emailTextCompliance}</td>
+                                <!-- <td class="view"><a href="#" onclick="openWin()">View Details </a></td>-->
+                            </tr>
+
+                            <!--<tr>
+                                <td class="domain1">Email Field Compliance</td>
+                                <td class="domain1" style="padding-left:100px">${emailFieldCompliance}</td>
+                                <td class="${emailFieldComplianceClass}">${emailFieldComplianceStatus}</td>
+                                &lt;!&ndash; <td class="view"><a href="#" onclick="openWin()">View Details </a></td>&ndash;&gt;
+                            </tr>-->
+                            <tr>
+                                <td class="domain1">Inactive URL</td>
+                                <td class="domain1" style="padding-left:100px">${inactiveLinkCompliance}</td>
+                                <!--<td class="view"><a href="#" onclick="openWin()">View Details </a></td>-->
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-9 website-ua">
+                    <div class="row">
+                        <h2 class="col-md-8">MAKE YOUR WEBSITE <span>UA COMPLANT</span></h2>
+
+                        <div class="col-md-4">
+                            <t:pagelink page="ContactUs" class="btn btn-primary btn-green"
+                                    >CONTACT US
+                            </t:pagelink>
+                            <!--<button type="submit" class="btn btn-primary btn-green">BE UA READY - CONTACT US</button>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="internalLinks clearfix">
+                    <div class="col-md-12">
+                        <div class="progressbar col-md-4">
+                            <t:delegate to="internalsLinks"/>
+                            <t:block id="on">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/001.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="tw">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/002.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="th">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/003.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="fo">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/004.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="fi">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/005.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="si">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/006.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="se">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/007.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="ei">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/008.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="ni">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/009.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+                            <t:block id="te">
+                                <div class="col-md-12 progress1">
+                                    <img src="${asset:images/010.png}" class="img-responsive"/>
+                                </div>
+                            </t:block>
+
+                            <h2><span> INTERNAL LINKS</span></h2>
+
+                        </div>
+                    </div>
+                    <div class="Criteria col-md-12">
+                        <div class="row col-set">
+
+                            <div class="col-md-3 box selected">
+                                <t:if test="!HtmlUnicodeCriteria">
+                                    <div class="first">
+                                        <img src="${asset:images/Close_icon.png}"/>
+                                        <h4>HTML Unicode Compliance</h4>
+                                    </div>
+                                </t:if>
+                                <t:if test="HtmlUnicodeCriteria">
+                                    <div class="first">
+                                        <img src="${asset:images/Check_icon_selected.png}"/>
+                                        <h4> HTML Unicode Compliance</h4>
+                                    </div>
+                                </t:if>
+                            </div>
+
+                            <div class="col-md-3 box selected">
+
+                                <t:if test="!InactiveLinkCriteria">
+                                    <div class="first">
+                                        <img src="${asset:images/Close_icon.png}"/>
+                                        <h4>INACTIVE LINKS CRITERIA</h4>
+                                    </div>
+                                </t:if>
+                                <t:if test="InactiveLinkCriteria">
+                                    <div class="first">
+                                        <img src="${asset:images/Check_icon_selected.png}"/>
+                                        <h4>INACTIVE LINKS CRITERIA</h4>
+                                    </div>
+                                </t:if>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="internalLinks clearfix">
+                        <div class="col-md-12">
+                            <div class="progressbar col-md-4">
+                                <t:delegate to="formElements"/>
+                                <t:block id="o1">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/001.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="t2">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/002.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="t3">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/003.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="f4">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/004.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="f5">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/005.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="s6">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/006.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="s7">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/007.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="e8">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/008.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="n9">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/009.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+                                <t:block id="t10">
+                                    <div class="col-md-12 progress1">
+                                        <img src="${asset:images/010.png}" class="img-responsive"/>
+                                    </div>
+                                </t:block>
+
+                                <h2><span>FORM ENTRY</span></h2>
+
+                            </div>
+                        </div>
+                        <div class="Criteria col-md-12">
+                            <div class="row col-set" style="margin-left:40em">
+
+                                <div class="col-md-3 box selected">
+                                    <t:if test="!FormElementCriteria">
+                                        <div class="first">
+                                            <img src="${asset:images/Close_icon.png}"/>
+                                            <h4>FORM ELEMENT CRITERIA</h4>
+
+                                        </div>
+                                    </t:if>
+                                    <t:if test="FormElementCriteria">
+                                        <div class="first">
+                                            <img src="${asset:images/Check_icon_selected.png}"/>
+                                            <h4>FORM ELEMENT CRITERIA</h4>
+                                        </div>
+                                    </t:if>
+                                </div>
+
+                                <!--<div class="col-md-3 box selected">
+                                    <t:if test="!EmailFieldCriteria">
+                                        <div class="first">
+                                            <img src="${asset:images/Close_icon.png}"/>
+                                            <h4>EMAIL FIELD CRITERIA</h4>
+                                        </div>
+                                    </t:if>
+                                    <t:if test="EmailFieldCriteria">
+                                        <div class="first">
+                                            <img src="${asset:images/Check_icon_selected.png}"/>
+                                            <h4>EMAIL FIELD CRITERIA</h4>
+                                        </div>
+                                    </t:if>
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="getwebsite">
+                        <div class="col-md-5">
+                            <div class="leftsec">
+                                <h2>GET YOUR WEBSITE<span>UA COMPLIANCE </span></h2>
+
+                                <p class="simpleText"> Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum. Printing and typesetting industry typesetting.</p>
+
+                                <p>
+                                    <button type="button" class="btn btn-primary btn-green">BE UA READY - CONTACT US
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                        &lt;!&ndash;<div class="col-md-7"><img src="${asset:images/zen_homepage_small2.png}"
+                                                   class="small img-responsive"/></div>&ndash;&gt;
+                    </div>-->
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="clearfix">
+            <!--<div class="connect">
+                <img src="${asset:images/Conect_with_us_icon.png}" class="img-responsive"/>
+                <h4 class="us"> CONNECT WITH US </h4>
+
+                <div class="contactArrow">
+                    <img src="${asset:images/contact_arrow.png}" class="img-responsive contactImg"/>
+                </div>
+            </div>
+            <div class="contact clearfix">
+                <div class="col-md-9">
+                    <div class="col-md-9">
+                        <img src="${asset:images/Contact_icon.png}"/> <span class="cont-title">Global Numbers </span>
+
+                        <p class="ph-numbers"><span> India <a href="tel:+91 2066074000">+91 2066074000</a>,</span>
+                            <span>USA <a href="tel:+1866-425-4242">+1866-425-4242</a>,</span> <span> UK <a
+                                    href="tel:+44-1753692700">+44-1753692700</a>,</span> <span>South Africa <a
+                                    href="tel:+27117854540">+27117854540</a> </span></p>
+                    </div>
+
+                    <div class="col-md-3 global1">
+                        <img src="${asset:images/email_icon_01.png}"/> <span class="cont-title">Email ID </span>
+
+                        <p class="email"><a href="mailto:UASG@ZENSAR.COM"> UASG@ZENSAR.COM </a></p>
+                    </div>
+
+                </div>
+
+            </div>-->
+            <div class="footer-nav clearfix">
+                <div class="col-md-11 clearfix">
+                    <ul>
+                        <li>
+                            <t:pagelink page="WhatUASG"
+                                    >WHAT IS UA
+                            </t:pagelink>
+                        </li>
+                        <li>
+                            <t:pagelink page="WhyUASG"
+                                    >WHY UA
+                            </t:pagelink>
+                        </li>
+                        <li>
+                            <t:pagelink page="FAQ"
+                                    >FAQS
+                            </t:pagelink>
+                        </li>
+                        <!--<li>
+                            <t:pagelink page="Blog"
+                                    >BLOGS
+                            </t:pagelink>
+                        </li>-->
+                        <li>
+                            <t:pagelink page="AboutUs"
+                                    >ABOUT US
+                            </t:pagelink>
+                        </li>
+                        <li>
+                            <t:pagelink page="ContactUs"
+                                    >CONTACT US
+                            </t:pagelink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">copy; copyright.zensar 2016. All rights reserved</div>
+        </footer>
+    </div>
+</div>
+</html>

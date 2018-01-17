@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" t:type="layout" title="FAQ | UAC BETA"
+      xmlns:p="tapestry:parameter">
+<style>
+    @media all and (-ms-high-contrast: none) {
+        .search {
+            width: 20%
+        }
+
+        /* IE10 */
+        *::-ms-backdrop, .search {
+            width: 20%
+        }
+
+        /* IE11 */
+
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="beta">
+            <span style="float: left"><img class="img-responsive" src="${asset:images//zensar.png}"/></span>
+            <span style="float: right"><img class="img-responsive" src="${asset:images//beta.png}"/></span>
+        </div>
+    </div>
+    <div class="row">
+        <header>
+            <h1 id="logo" class="col-md-2 col-xs-8" style="padding: 0px;">
+                <a href="#">
+                    <img class="img-responsive" src="${asset:images/uac-logo-1.png}"/>
+                </a>
+            </h1>
+
+            <div class="col-md-7 top-nav">
+                <nav class="navbar navbar-default" style="background-color: transparent;border-color: transparent;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <t:pagelink page="home"
+                                            style="background-color: transparent;color: #fff;">HOME
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="WhatUASG"
+                                            style="background-color: transparent;color: #fff;">WHAT IS UA
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="WhyUASG"
+                                            style="background-color: transparent;color: #fff;">WHY UA
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="FAQ"
+                                            style="background-color: transparent;color: #fff;">FAQS
+                                </t:pagelink>
+                            </li>
+                            <!--<li>
+                                <t:pagelink page="Blog"
+                                            style="background-color: transparent;color: #fff;">BLOGS
+                                </t:pagelink>
+                            </li>-->
+                            <li>
+                                <t:pagelink page="AboutUs"
+                                            style="background-color: transparent;color: #fff;">ABOUT US
+                                </t:pagelink>
+                            </li>
+                            <li>
+                                <t:pagelink page="ContactUs"
+                                            style="background-color: transparent;color: #fff;">CONTACT US
+                                </t:pagelink>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!--<div class="col-md-3 topsearch">
+                <input type="text" name="search" class="form-control" id="search-control" placeholder="e.g.zensar.com"
+                        />
+                <a><img src="${asset:images/search_icon.png}"/></a>
+            </div>-->
+        </header>
+        <div class="home-topSec clearfix">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="latest1"
+                            style="padding-top: 18px; font-weight:bold;padding-left:115px;color: #ffffff;"> Frequently
+                            Asked Questions<!-- <span
+                        class="total2" style="color: #439fea;font-weight: bold;">UASG </span>--></h3>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-10">
+                        <div class="uasg">
+                            <div class="row">
+                                <div class="col-md-6" style="width: 100%;">
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 16px; font-weight:bold ;color: #ffffff;"> Q. What is Zensar's role in this
+                                        tool/initiative?</p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 14px; color: #ffffff;">
+                                        A. Zensar <a style="color: #ccc;visited:#ccc;" href="http://www.zensar.com">www.zensar.com</a>
+                                        is an IT Services
+                                        company with offices in India, USA,
+                                        Europe, China and Australia. Zensar is involved in Universal Acceptance
+                                        Compliance (UAC) work in UASG. While working on UAC for UASG, the team felt
+                                        that we should help create awareness about UAC in the global internet community.
+                                        Zensar is providing this tool to everyone so that they can check their website
+                                        for UA Compliance/readiness. As a technology services company, Zensar can also
+                                        help corporate customers in getting their Web IT infrastructure to be UA
+                                        Compliant. You can connect to Zensar team for UA Consulting or UA related
+                                        development and testing.
+                                    </p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 16px;font-weight:bold ; color: #ffffff;">Q. How does this UA Analyzer
+                                        work?</p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 14px; color: #ffffff;">
+                                        A. In the Beta version, UA Analyzer scans the site for following:<br/>
+                                        1. All the links on the HTML pages are Unicode.<br/>
+                                        2. All the email addresses are unicode compliant.<br/>
+                                        3. There is a limit of 25,000 pages per site in Beta version<br/>
+                                        In the production version, the UA Analyzer will verify the TLD portion of a
+                                        domain name against an authoritative table. At present, it does not validate
+                                        against the DNS as it is yet to be UA Compliant.
+                                        Please contact us at <a style="color: #ccc;visited:#ccc;"
+                                                                href="mailto:harshal.jawale@zensar.com">harshal.jawale@zensar.com</a>
+                                        if you need to crawl more than
+                                        25,000 pages.<br/>
+                                        Here’s a quick
+                                        <t:actionlink t:id="exportLink" id="exportLink"
+                                                      style="color: #ccc;visited:#ccc;"
+                                                >help guide
+                                        </t:actionlink>
+                                        for your reference.
+                                    </p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 16px; font-weight:bold ; color: #ffffff;">Q. What is the scoring logic? How
+                                        do I increase my
+                                        score?</p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 14px; color: #ffffff;">
+                                        A. The tool gives completion factors for following criteria:<br/>
+                                        1. Domain Unicode URL Compliance - Checks if all links are UA compliant. If all
+                                        are compliant, then the completion factor is 10.<br/>
+                                        2. Unicode Email Address Compliance - Checks if all email addresses are UA
+                                        Compliant.<br/>
+                                        3. Inactive URL Compliance - The tool also checks for inactive or dead links. It
+                                        gives lower weightage for this factor when computing the final score
+                                        The final score is an average of all the above weighted scores. If you fix the
+                                        issues given in the report, the score will increase till you are fully
+                                        compliant.</p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 16px; font-weight:bold ; color: #ffffff;">Q. I have analyzed my website for
+                                        UA and got a
+                                        score? What are next steps?</p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 14px; color: #ffffff;">
+                                        A. Great! You can download the detail report (free in beta version) which has
+                                        details of which URLs are not UA compliant. You have following options:<br/>
+                                        1. Fix the UA issues on your own<br/>
+                                        2. Get help from Zensar Consulting on how to go about fixing them<br/>
+                                        3. Zensar can help you with development and testing services to make your web
+                                        application fully compliant.</p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 16px; font-weight:bold ; color: #ffffff;">Q. UA Analyzers only checks the
+                                        front end, how do I check my backend server code for UA Compliance?</p>
+
+                                    <p class="universal" style="padding-top: 15px;padding-left: 20px;padding-right: 20px;text-align: justify;
+                                font-size: 14px; color: #ffffff;">
+                                        A. Currently, UASG <a style="color: #ccc;visited:#ccc;"
+                                                              href="https://www.uasg.tech">www.uasg.tech</a> is making
+                                        efforts
+                                        to provide libraries for
+                                        different programming languages that you can use to fix server side code. If you
+                                        do not have resources to do this, you may contact Zensar team
+                                        <a style="color: #ccc;visited:#ccc;"
+                                           href="mailto:harshal.jawale@zensar.com">harshal.jawale@zensar.com</a>
+                                        for
+                                        providing consulting services.
+                                    </p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="sintel">
+                    <div class="player">
+                        <div class="mediaplayer">
+                            <video poster="http://corrupt-system.de/assets/media/sintel/sintel-trailer.jpg" controls
+                                   preload="none">
+                                <source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.m4v"
+                                        type="video/mp4"/>
+                                <source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.webm"
+                                        type="video/webm"/>
+                            </video>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>-->
+
+        <footer class="clearfix">
+            <!--<div class="connect">
+
+                <img src="${asset:images/Conect_with_us_icon.png}" class="img-responsive"/>
+                <h4 class="us"> CONNECT WITH US </h4>
+
+                <div class="contactArrow">
+                    <img src="${asset:images/contact_arrow.png}" class="img-responsive contactImg"/>
+                </div>
+            </div>
+            <div class="contact clearfix">
+                <div class="col-md-9">
+                    <div class="col-md-9">
+                        <img src="${asset:images/Contact_icon.png}"/> <span class="cont-title">Global Numbers </span>
+
+                        <p class="ph-numbers"><span> India <a href="tel:+91 2066074000">+91 2066074000</a>,</span>
+                            <span>USA <a href="tel:+1866-425-4242">+1866-425-4242</a>,</span> <span> UK <a
+                                    href="tel:+44-1753692700">+44-1753692700</a>,</span> <span>South Africa <a
+                                    href="tel:+27117854540">+27117854540</a> </span></p>
+                    </div>
+
+                    <div class="col-md-3 global1">
+                        <img src="${asset:images/email_icon_01.png}"/> <span class="cont-title">Email ID </span>
+
+                        <p class="email"><a href="mailto:UASG@ZENSAR.COM"> UASG@ZENSAR.COM </a></p>
+                    </div>
+
+                </div>
+
+            </div>-->
+            <div class="footer-nav clearfix">
+                <div class="col-md-11 clearfix">
+                    <ul>
+                        <li>
+                            <t:pagelink page="WhatUASG"
+                                    >WHAT IS UA
+                            </t:pagelink>
+                        </li>
+                        <li>
+                            <t:pagelink page="WhyUASG"
+                                    >WHY UA
+                            </t:pagelink>
+                        </li>
+                        <li>
+                            <t:pagelink page="FAQ"
+                                    >FAQS
+                            </t:pagelink>
+                        </li>
+                        <!-- <li>
+                             <t:pagelink page="Blog"
+                                     >BLOGS
+                             </t:pagelink>
+                         </li>-->
+                        <li>
+                            <t:pagelink page="AboutUs"
+                                    >ABOUT US
+                            </t:pagelink>
+                        </li>
+                        <li>
+                            <t:pagelink page="ContactUs"
+                                    >CONTACT US
+                            </t:pagelink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">&copy; copyright.zensar 2016. All rights reserved</div>
+        </footer>
+
+    </div>
+</div>
+
+</html>

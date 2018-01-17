@@ -1,0 +1,19 @@
+version: '2'
+services:
+  mysql:
+    image: mariadb
+    container_name: sla-mariadb
+    privileged: True
+    environment:
+      - "MYSQL_ROOT_PASSWORD=admin"
+      - "MYSQL_DATABASE=uac"
+      - "MYSQL_USER=root"
+      - "MYSQL_PASSWORD=admin"
+    volumes:
+      - ./database_init/:/docker-entrypoint-initdb.d
+    networks:
+      - "jenkins_testing"
+networks:
+  jenkins_testing:
+    external:
+      name: jenkins_testing
